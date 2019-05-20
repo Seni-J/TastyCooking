@@ -1,6 +1,9 @@
 export class DataProvider {
     public receipes = [
-        "id": "tarte-citron-meringue",
+        'pomme',
+        'poire',
+        'orange'
+        /*"id": "tarte-citron-meringue",
         "name": "Tarte citron meringué",
         "creatorId": 1,
         "isAvailable": true,
@@ -11,7 +14,7 @@ export class DataProvider {
             "citron",
             "sucre",
             "farine"
-            ],
+            ],*/
     ]
 
     public init(){

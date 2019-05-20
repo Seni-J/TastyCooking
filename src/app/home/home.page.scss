@@ -1,1 +1,19 @@
+ion-toolbar {
+  height: 90px;
+  text-align: center;
+  ion-title{
+    padding-top: 20px;
+  }
+}
 
+ion-card {
+  background-color: #24d6ea;
+}
+p{
+  color: #ffffff;
+  text-align: center;
+}
+/*
+ion-content {
+  --overflow: hidden;
+}*/

@@ -1,10 +1,21 @@
 <ion-header>
   <ion-toolbar>
-    <ion-back-button defaultHref="/"></ion-back-button>
     <ion-title>Contact</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-<div>Contactez moi au numéro suivant</div>
+  <ion-item>
+    <ion-label position="floating">Votre nom</ion-label>
+    <ion-input placeholder="Nom"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Votre email</ion-label>
+    <ion-input placeholder="Email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Votre message</ion-label>
+    <ion-textarea></ion-textarea>
+  </ion-item>
+  <ion-button type="submit" class="ion-float-right">Envoyer</ion-button>
 </ion-content>

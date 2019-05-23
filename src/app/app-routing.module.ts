@@ -7,6 +7,8 @@ const routes: Routes = [
   { path: 'contact', loadChildren: './contact/contact.module#ContactPageModule' },
   { path: 'details/:id', loadChildren: './details/details.module#DetailsPageModule' },
   { path: 'receipe/:uri', loadChildren: './receipe/receipe.module#ReceipePageModule' },
+  { path: 'favorite', loadChildren: './favorite/favorite.module#FavoritePageModule' },
+  { path: 'category', loadChildren: './category/category.module#CategoryPageModule' },
 ];
 
 @NgModule({

@@ -1,5 +1,7 @@
 {
   "name": "TastyCooking",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

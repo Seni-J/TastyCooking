@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: 'details/:id', loadChildren: './details/details.module#DetailsPageModule' },
   { path: 'favorite', loadChildren: './favorite/favorite.module#FavoritePageModule' },
   { path: 'category', loadChildren: './category/category.module#CategoryPageModule' },
+  { path: 'recipe', loadChildren: './recipe/recipe.module#RecipePageModule' },
 ];
 
 @NgModule({

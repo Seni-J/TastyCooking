@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Storage } from '@ionic/storage';
-import { Router} from '@angular/router';
+import {NavigationExtras, Router} from '@angular/router';
 import {DataProvider} from '../provider/DataProvider';
 
 @Component({
@@ -19,6 +19,14 @@ export class HomePage {
   }
   public gotocontact(){
     this.router.navigateByUrl('contact')
+  }
+  public goToSelectedReceipe(id){
+    let navigationExtras: NavigationExtras ={
+      state: {
+        recipe: id
+      }
+    };
+    this.router.navigate(['recipe'] , navigationExtras);
   }
 
 }

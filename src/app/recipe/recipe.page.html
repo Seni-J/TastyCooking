@@ -1,9 +1,27 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Recette pour {{data}}</ion-title>
+    <ion-title>Recette pour {{data.name}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <img src="{{data.wecook_url}}" />
+  <div class="recipe-details">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div class="recipe-ingredients-count">
+            <div>{{data.ingredients_count}}</div>
+            Ingredients
+          </div>
+        </ion-col>
+        <ion-col>
+          <div class="recipe-time">
+            <div>{{data}}</div>
+            Minutes
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 </ion-content>

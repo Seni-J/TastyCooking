@@ -20,6 +20,16 @@ export class HomePage {
     this.router = router
     this.data = data
 
+    this.data.getRecipes().then((recipes) => {
+      recipes['data'].forEach(recipe => {
+        this.recipes.push({
+          id: recipe.id,
+          title: recipe.title,
+          pic: recipe.picture,
+          kcal: recipe.calories,
+        });
+      });
+    });
   }
   public gotocontact(){
     this.router.navigateByUrl('contact')

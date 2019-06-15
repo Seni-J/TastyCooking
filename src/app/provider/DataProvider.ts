@@ -25,7 +25,11 @@ export class DataProvider{
     }
 
     public getRecipes(): Promise<any> {
-        return this.storage.get('recipes');
+        if(this.storage.get('recipes') == null){
+            this.getAPIRecipes()
+        }else{
+            return this.storage.get('recipes');
+        }
     }
 
     /*public recipes = {

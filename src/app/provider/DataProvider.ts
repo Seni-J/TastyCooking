@@ -1,5 +1,34 @@
+import {Storage} from "@ionic/storage";
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
+import {Recipe} from "../models/Recipe";
+
+
 export class DataProvider{
-    public recipes = {
+    private url = "http://127.0.0.1:8000/api/sjm/recipes"
+    private storage: Storage;
+    private http: HttpClient;
+    private recipes: Array<Recipe> = [];
+
+    constructor(storage: Storage, http: HttpClient) {
+        this.storage = storage;
+        this.http = http;
+    }
+
+    getAPIRecipes(): Observable<any>{
+        this.http.get(this.url).subscribe(data  => {
+            this.storage.set('recipes', data);
+            this.recipes.push.apply(data);
+            return this.recipes;
+        });
+        return;
+    }
+
+    public getRecipes(): Promise<any> {
+        return this.storage.get('recipes');
+    }
+
+    /*public recipes = {
         "result": {
             "resources": [
                 {
@@ -41,5 +70,5 @@ export class DataProvider{
                 "page_number": 1
             }
         }
-    }
+    }*/
 }

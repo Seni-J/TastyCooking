@@ -8,7 +8,7 @@
 
 <ion-content>
     <ion-list>
-        <ion-item *ngFor="let recipe of results" (click)="goToSelectedReceipe(recipe)">
+        <ion-item *ngFor="let recipe of data.recipes" (click)="goToSelectedReceipe(recipe.id)">
             <ion-label>{{recipe.title}}</ion-label>
         </ion-item>
     </ion-list>

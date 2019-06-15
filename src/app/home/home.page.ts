@@ -19,18 +19,25 @@ export class HomePage {
   constructor(router: Router,private storage: Storage, data : DataProvider){
     this.router = router
     this.data = data
-
-    this.data.getRecipes().then((recipes) => {
-      recipes['data'].forEach(recipe => {
-        this.recipes.push({
-          id: recipe.id,
-          title: recipe.title,
-          pic: recipe.picture,
-          kcal: recipe.calories,
-        });
-      });
-    });
+    this.load()
   }
+
+  private load(): Promise<string> {
+
+    return new Promise<string>((resolve, reject) => {
+      this.data.getAPIRecipes().then(() => {
+        this.data.getRecipes().then(() =>{
+          console.log('load.resolve');
+          resolve('Ok')
+        }).catch(() => {
+          this.data.getRecipes()
+          console.log('load.reject');
+          reject('Ko')
+        })
+      })
+    })
+  }
+
   public gotocontact(){
     this.router.navigateByUrl('contact')
   }

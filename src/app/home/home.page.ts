@@ -42,12 +42,7 @@ export class HomePage {
     this.router.navigateByUrl('contact')
   }
   public goToSelectedReceipe(id){
-    let navigationExtras: NavigationExtras ={
-      state: {
-        recipe: id
-      }
-    };
-    this.router.navigate(['recipe'] , navigationExtras);
+    this.router.navigateByUrl('recipe/' + id)
   }
 
 }

@@ -43,6 +43,17 @@ export class DataProvider{
         })
     }
 
+    public find(id) {
+        return new Promise<any>((resolve, reject) => {
+            this.recipes.forEach((recipe) => {
+                if (recipe.id == id) {
+                    resolve(recipe)
+                }
+            })
+            reject('Recipe' + id + ' not found')
+        })
+    }
+
     /*public recipes = {
         "result": {
             "resources": [

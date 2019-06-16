@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Route, Router} from '@angular/router';
+import {DataProvider} from "../provider/DataProvider";
+import {HttpClient} from "@angular/common/http";
+import {Recipe} from "../models/Recipe";
 
 @Component({
   selector: 'app-recipe',
@@ -8,18 +11,22 @@ import {ActivatedRoute, Route, Router} from '@angular/router';
 })
 export class RecipePage implements OnInit {
 
-  data: any;
+  data: DataProvider
+  public recipe: Recipe
+  private http: HttpClient
+  private route: ActivatedRoute
 
-  constructor(private route: ActivatedRoute, private router: Router) {
-    this.route.queryParams.subscribe(params => {
-      if (this.router.getCurrentNavigation().extras.state) {
-        this.data = this.router.getCurrentNavigation().extras.state.recipe;
-      }
-    });
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, data: DataProvider, http: HttpClient) {
+    this.route = activatedRoute
+    this.data = data
+    this.http = http
   }
 
   ngOnInit() {
-
+    var id = this.route.snapshot.paramMap.get('id')
+    this.data.find(id).then((recipe) =>{
+      this.recipe = recipe
+    })
   }
 
 }

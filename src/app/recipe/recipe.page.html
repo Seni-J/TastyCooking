@@ -1,23 +1,26 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Recette pour {{data.title}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="" routerLink="/" routerDirection="back"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Recette pour {{recipe.title}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <img src="{{data.wecook_url}}" />
+  <img src="" />
   <div class="recipe-details">
     <ion-grid>
       <ion-row>
         <ion-col>
-          <div class="recipe-ingredients-count">
-            <div>{{data.ingredients_count}}</div>
-            Ingredients
+          <div class="recipe-kcal">
+            {{ recipe.kcal }}
           </div>
+          Nombre de calories
         </ion-col>
         <ion-col>
           <div class="recipe-time">
-            <div>{{data}}</div>
+            <div></div>
             Minutes
           </div>
         </ion-col>

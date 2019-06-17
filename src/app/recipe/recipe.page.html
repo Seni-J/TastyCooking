@@ -3,24 +3,24 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="" routerLink="/" routerDirection="back"></ion-back-button>
     </ion-buttons>
-    <ion-title>Recette pour {{recipe.title}}</ion-title>
+    <ion-title>Recette pour {{recipe?.title}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <img src="" />
+  <img src="{{recipe?.pic}}" />
   <div class="recipe-details">
     <ion-grid>
       <ion-row>
         <ion-col>
           <div class="recipe-kcal">
-            {{ recipe.kcal }}
+            {{ recipe?.kcal }}
           </div>
           Nombre de calories
         </ion-col>
         <ion-col>
           <div class="recipe-time">
-            <div></div>
+            <div>{{recipe?.time}}</div>
             Minutes
           </div>
         </ion-col>

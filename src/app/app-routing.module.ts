@@ -7,7 +7,8 @@ const routes: Routes = [
   { path: 'contact', loadChildren: './contact/contact.module#ContactPageModule' },
   { path: 'favorite', loadChildren: './favorite/favorite.module#FavoritePageModule' },
   { path: 'category', loadChildren: './category/category.module#CategoryPageModule' },
-  { path: 'recipe/:id', loadChildren: './recipe/recipe.module#RecipePageModule' },
+  { path: 'recipe/:id', loadChildren: './recipe/recipe.module#RecipePageModule' },  { path: 'createrecipe', loadChildren: './createrecipe/createrecipe.module#CreaterecipePageModule' },
+
 ];
 
 @NgModule({

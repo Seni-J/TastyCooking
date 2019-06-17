@@ -1,10 +1,10 @@
 ion-toolbar {
-  height: 90px;
+  height: 80px;
   text-align: center;
-  ion-title{
-    padding-top: 20px;
+  ion-back-button{
+    display: inline-block;
   }
-}
-ion-button{
-  margin-top: 25px;
+  ion-title{
+    padding-top: 10px;
+  }
 }

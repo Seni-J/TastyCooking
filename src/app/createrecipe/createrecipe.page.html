@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="" routerLink="/" routerDirection="back"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Ajouter une nouvelle recette</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div *ngIf = "taken ; else noimage">
+    <img class="displayed" height="150 px" width="150 px" src="{{image}}">
+  </div>
+  <ng-template #noimage>
+    <div class="noimage">
+      Aucune photo prise
+    </div>
+  </ng-template>
+  <ion-button expand="block" (click)="openCam()" ><ion-icon name="camera"></ion-icon> Faire une photo</ion-button>
+
+  <ion-item>
+    <ion-label position="floating">Nom de recette</ion-label>
+    <ion-input placeholder="Nom" [(ngModel)]="name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Nombre de calories</ion-label>
+    <ion-input placeholder="kcal du plat" [(ngModel)]="kcal"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Temps approximatif de préparation</ion-label>
+    <ion-input placeholder="Temps moyen" [(ngModel)]="time"></ion-input>
+  </ion-item>
+  <!--<ion-item>
+    <ion-label position="floating">Tutoriel</ion-label>
+    <ion-textarea></ion-textarea>
+  </ion-item>-->
+  <ion-button type="submit" class="ion-float-right" (click)="addNewRecipe()">Envoyer</ion-button>
+</ion-content>

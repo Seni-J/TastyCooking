@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
-import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import {IonicModule, IonicRouteStrategy, ToastController} from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
@@ -11,6 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { IonicStorageModule } from '@ionic/storage';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {DataProvider} from "./provider/DataProvider";
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import {NativePageTransitions} from '@ionic-native/native-page-transitions';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,6 +23,8 @@ import {DataProvider} from "./provider/DataProvider";
     SplashScreen,
     DataProvider,
     HttpClient,
+    Camera,
+    ToastController,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

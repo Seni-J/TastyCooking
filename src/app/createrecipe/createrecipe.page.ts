@@ -20,7 +20,7 @@ export class CreaterecipePage implements OnInit {
   name:string
   kcal:number
   time:number
-  id:number = 5
+  id:number = 1
   private recipes: Recipe[];
 
 
@@ -57,6 +57,11 @@ export class CreaterecipePage implements OnInit {
 
 
   public addNewRecipe(){
-
+    var r = new Recipe(this.id,this.name,this.image,this.kcal,this.time)
+    this.recipes.push(r)
+    this.storage.set('myRecipes',this.recipes)
+    this.id++
+    console.log("Added a new recipe")
+    this.router.navigateByUrl('home')
   }
 }

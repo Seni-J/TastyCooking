@@ -30,16 +30,21 @@ export class HomePage {
     return new Promise<string>((resolve, reject) => {
       this.data.getAPIRecipes().then(() => {
         this.data.getRecipes().then(() =>{
-          console.log('load.resolve');
+          this.data.getMyRecipes()
           resolve('Ok')
         }).catch(() => {
-          this.data.getRecipes()
-          console.log('load.reject');
+          this.data.getMyRecipes()
           reject('Ko')
         })
+      }).catch(() => {
+        this.data.getMyRecipes()
+        this.data.getRecipes()
+        reject('Ko')
       })
     })
   }
+
+
 
   public goToCreateRecipe(){
     this.router.navigateByUrl('createrecipe')

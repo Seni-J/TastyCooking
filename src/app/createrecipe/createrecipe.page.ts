@@ -41,7 +41,8 @@ export class CreaterecipePage implements OnInit {
       destinationType: this.camera.DestinationType.FILE_URI,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
-      saveToPhotoAlbum: true
+      saveToPhotoAlbum: true,
+      correctOrientation: true
     }
 
     this.camera.getPicture(options).then((imageData) => {
@@ -59,11 +60,21 @@ export class CreaterecipePage implements OnInit {
 
 
   public addNewRecipe(){
+    console.log(this.image)
     var r = new Recipe(this.id,this.name,this.image,this.kcal,this.time,this.ingredients)
     this.recipes.push(r)
     this.storage.set('myRecipes',this.recipes)
     this.id++
+
+    this.name = ""
+    this.image = ""
+    this.kcal = null
+    this.time = null
+    this.ingredients = null
+
+
     console.log("Added a new recipe")
+
     this.router.navigateByUrl('home')
   }
 }

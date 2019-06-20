@@ -25,13 +25,16 @@
           </div>
         </ion-col>
       </ion-row>
-      <!--<div *ngIf="recipe?.ingredients.length >= 1; else noingredient">
+      <br>
+      <div *ngIf="recipe?.ingredients != null && recipe?.ingredients.length >= 1; else noingredient">
         Ingrédient(s) nécessaire(s) pour faire ce plat:
-        <div *ngFor="let ingredient of recipe?.ingredients">{{ingredient.name}}</div>
+        <ul>
+        <li *ngFor="let ingredient of recipe?.ingredients">{{ingredient.name}}</li>
+        </ul>
       </div>
       <ng-template #noingredient>
         <div> Pas d'ingrédient mentionné pour ce plat.</div>
-      </ng-template>-->
+      </ng-template>
     </ion-grid>
   </div>
 </ion-content>

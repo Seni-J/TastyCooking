@@ -54,7 +54,7 @@ export class DataProvider{
             this.myRecipes = []
             this.storage.get('myRecipes').then((data) => {
                 data.forEach((value) => {
-                    var f = new Recipe(value.id, value.title, value.picture, value.kcal,value.time, value.ingredients)
+                    var f = new Recipe(value.id, value.title, value.pic, value.kcal,value.time, value.ingredients)
                     this.myRecipes.push(f)
                 })
                 console.log('Loaded My Recipes');

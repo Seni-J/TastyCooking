@@ -30,17 +30,12 @@ export class HomePage {
 
     return new Promise<string>((resolve, reject) => {
       this.data.getAPIRecipes().then(() => {
-        this.data.getRecipes().then(() =>{
-          this.data.getMyRecipes()
+        this.data.getRecipes().then(() => {
           resolve('Ok')
         }).catch(() => {
-          this.data.getMyRecipes()
+          this.data.getRecipes()
           reject('Ko')
         })
-      }).catch(() => {
-        this.data.getMyRecipes()
-        this.data.getRecipes()
-        reject('Ko')
       })
     })
   }
@@ -49,13 +44,8 @@ export class HomePage {
     this.router.navigateByUrl('createrecipe')
   }
 
-  public goToSelectedReceipe(id, isMine){
-    let navExtras: NavigationExtras = {
-      state: {
-        MyRecipe: isMine
-      }
-    }
-    this.router.navigateByUrl('recipe/' + id, navExtras)
+  public goToSelectedReceipe(id){
+    this.router.navigateByUrl('recipe/' + id)
   }
 
   doRefresh(event) {

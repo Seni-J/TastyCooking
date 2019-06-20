@@ -3,6 +3,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import {Storage} from '@ionic/storage';
 import {Recipe} from '../models/Recipe';
 import {Router} from '@angular/router';
+import {DataProvider} from '../provider/DataProvider';
 
 @Component({
   selector: 'app-createrecipe',
@@ -16,19 +17,18 @@ export class CreaterecipePage implements OnInit {
   taken:boolean = false
   storage:Storage
   recipe:Recipe
+  private data: DataProvider
 
   name:string
   kcal:number
   time:number
   ingredients: string[]
-  id:number = 1
-  private recipes: Recipe[];
 
 
-  constructor(router: Router, private camera: Camera, storage: Storage) {
+  constructor(router: Router, private camera: Camera, storage: Storage,data: DataProvider) {
     this.router = router
     this.storage = storage
-    this.recipes = []
+    this.data = data
   }
 
   ngOnInit() {
@@ -60,11 +60,11 @@ export class CreaterecipePage implements OnInit {
 
 
   public addNewRecipe(){
-    console.log(this.image)
-    var r = new Recipe(this.id,this.name,this.image,this.kcal,this.time,this.ingredients)
-    this.recipes.push(r)
-    this.storage.set('myRecipes',this.recipes)
-    this.id++
+    var r = new Recipe(this.data.recipes.length + 1,this.name,this.image,this.kcal,this.time,this.ingredients)
+
+    this.data.recipes.push(r)
+    this.storage.set('recipes',this.data.recipes)
+
 
     this.name = ""
     this.image = ""

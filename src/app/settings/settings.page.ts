@@ -12,7 +12,7 @@ const themes = {
     dark: '#222428'
   },
   night: {
-    primary: '#8CBA80',
+    primary: '#5989f9',
     secondary: '#FCFF6C',
     tertiary: '#FE5F55',
     medium: '#BCC2C7',

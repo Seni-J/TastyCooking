@@ -17,35 +17,21 @@ export class RecipePage implements OnInit {
   public recipe: Recipe
   private http: HttpClient
   private route: ActivatedRoute
-  private isMyRecipe: boolean
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, data: DataProvider, http: HttpClient) {
     this.route = activatedRoute
     this.data = data
     this.http = http
 
-    // We need to check if we need the storage MyRecipe or not.
-    this.route.queryParams.subscribe(params => {
-      if (this.router.getCurrentNavigation().extras.state) {
-        this.isMyRecipe = this.router.getCurrentNavigation().extras.state.MyRecipe;
-      }
-    });
   }
 
   ngOnInit() {
     var id = this.route.snapshot.paramMap.get('id')
 
-    if(!this.isMyRecipe){
+
       this.data.find(id).then((recipe) =>{
         this.recipe = recipe
       })
-    }else{
-      console.log('test')
-      this.data.findMyRecipe(id).then((recipe) =>{
-        console.log(recipe)
-        this.recipe = recipe
-      })
-    }
   }
 
 }

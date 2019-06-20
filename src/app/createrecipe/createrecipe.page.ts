@@ -20,6 +20,7 @@ export class CreaterecipePage implements OnInit {
   name:string
   kcal:number
   time:number
+  ingredients: string[]
   id:number = 1
   private recipes: Recipe[];
 
@@ -39,7 +40,8 @@ export class CreaterecipePage implements OnInit {
       quality: 100,
       destinationType: this.camera.DestinationType.FILE_URI,
       encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE
+      mediaType: this.camera.MediaType.PICTURE,
+      saveToPhotoAlbum: true
     }
 
     this.camera.getPicture(options).then((imageData) => {
@@ -57,7 +59,7 @@ export class CreaterecipePage implements OnInit {
 
 
   public addNewRecipe(){
-    var r = new Recipe(this.id,this.name,this.image,this.kcal,this.time)
+    var r = new Recipe(this.id,this.name,this.image,this.kcal,this.time,this.ingredients)
     this.recipes.push(r)
     this.storage.set('myRecipes',this.recipes)
     this.id++

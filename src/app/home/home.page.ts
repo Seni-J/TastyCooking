@@ -50,8 +50,13 @@ export class HomePage {
     this.router.navigateByUrl('createrecipe')
   }
 
-  public goToSelectedReceipe(id){
-    this.router.navigateByUrl('recipe/' + id)
+  public goToSelectedReceipe(id, isMine){
+    let navExtras: NavigationExtras = {
+      state: {
+        MyRecipe: isMine
+      }
+    }
+    this.router.navigateByUrl('recipe/' + id, navExtras)
   }
 
   doRefresh(event) {

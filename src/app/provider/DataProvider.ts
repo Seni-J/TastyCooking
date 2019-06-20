@@ -37,13 +37,13 @@ export class DataProvider{
             this.recipes = []
             this.storage.get('recipes').then((data) => {
                 data.data.forEach((value) => {
-                    var f = new Recipe(value.id, value.title, value.picture, value.calories,value.time)
+                    var f = new Recipe(value.id, value.title, value.picture, value.calories,value.time,value.ingredients)
                     this.recipes.push(f)
                 })
-                console.log('loadFromStorage.resolve');
+                console.log('Load for storage');
                 resolve('Ok')
             }).catch(() => {
-                console.log('loadFromStorage.reject');
+                console.log('Error to load storage');
                 reject('Ko')
             })
         })
@@ -54,13 +54,13 @@ export class DataProvider{
             this.myRecipes = []
             this.storage.get('myRecipes').then((data) => {
                 data.forEach((value) => {
-                    var f = new Recipe(value.id, value.title, value.picture, value.calories,value.time)
+                    var f = new Recipe(value.id, value.title, value.picture, value.kcal,value.time, value.ingredients)
                     this.myRecipes.push(f)
                 })
-                console.log('loadFromStorage.myRecipes.resolve');
+                console.log('Loaded My Recipes');
                 resolve('Ok')
             }).catch(() => {
-                console.log('loadFromStorage.myRecipes.reject');
+                console.log('No my recipes');
                 reject('Ko')
             })
         })

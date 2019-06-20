@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: 'favorite', loadChildren: './favorite/favorite.module#FavoritePageModule' },
   { path: 'category', loadChildren: './category/category.module#CategoryPageModule' },
   { path: 'recipe/:id', loadChildren: './recipe/recipe.module#RecipePageModule' },  { path: 'createrecipe', loadChildren: './createrecipe/createrecipe.module#CreaterecipePageModule' },
+  { path: 'settings', loadChildren: './settings/settings.module#SettingsPageModule' },
 
 ];
 

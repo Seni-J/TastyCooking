@@ -6,6 +6,7 @@ import {Observable} from "rxjs";
 import {Recipe} from "../models/Recipe";
 import {ToastController} from '@ionic/angular';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -43,8 +44,6 @@ export class HomePage {
       })
     })
   }
-
-
 
   public goToCreateRecipe(){
     this.router.navigateByUrl('createrecipe')

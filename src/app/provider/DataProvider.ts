@@ -9,35 +9,36 @@ export class DataProvider{
     private storage: Storage;
     private http: HttpClient;
     public recipes: Recipe[];
+    public lastUpdatedDate: Date
 
     constructor(storage: Storage, http: HttpClient) {
         this.storage = storage;
         this.http = http;
         this.recipes = [];
+        this.lastUpdatedDate = new Date()
     }
 
     public getAPIRecipes(): Promise<string> {
         return new Promise<string>((resolve, reject) => {
             this.http.get(this.url).subscribe(data => {
-                if(this.recipes.length == 0){
+                if(this.recipes.length == 0) {
                     this.storage.set('recipes', data['data']).then(() => {
+                        this.lastUpdatedDate = new Date()
                         resolve('Ok')
                     })
-                }else {
-                    let myRecipe = false
-
-                    for(let r of this.recipes){
-                        if(myRecipe){
-
-                        }else{
-                            if (r.id != data['data'].pop().id){
-                                r = new Recipe(r.id,data['data'].title,data['data'].picture,data['data'].kcal,data['data'].time,data['data'].ingredients)
-                            }else{
-                                myRecipe = true
+                }else{
+                    for(let d of data['data']){
+                        for(let r of this.recipes){
+                            if(r.id == d.id){
+                                //Update data with API
+                                this.recipes[r.id - 1].title = d.title
+                                this.recipes[r.id - 1].kcal = d.calories
+                                this.recipes[r.id - 1].pic = d.picture
+                                this.recipes[r.id - 1].time = d.time
                             }
                         }
                     }
-                    console.log(this.recipes)
+                    this.lastUpdatedDate = new Date()
                     resolve('Ok')
                 }
             },
@@ -50,13 +51,13 @@ export class DataProvider{
 
     public getRecipes(): Promise<string> {
         return new Promise<string>((resolve, reject) => {
-            this.recipes = []
             this.storage.get('recipes').then((data) => {
-                data.forEach((value) => {
-                    console.log(value)
-                    var f = new Recipe(value.id, value.title, value.picture, value.calories,value.time,value.ingredients)
-                    this.recipes.push(f)
-                })
+                if(this.recipes.length == 0){
+                    data.forEach((value) => {
+                        var f = new Recipe(value.id, value.title, value.picture, value.calories,value.time,value.ingredients)
+                        this.recipes.push(f)
+                    })
+                }
                 console.log('Load for storage');
                 resolve('Ok')
             }).catch(() => {

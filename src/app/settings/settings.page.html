@@ -12,4 +12,6 @@
   <ion-input placeholder="{{this.data.url}}" [(ngModel)]="APIurl" readonly="false"></ion-input>
   <ion-button (click)="setAPI()">Modifier l'adresse de l'API</ion-button>
   <ion-button (click)="resetAPI()">Remettre l'API de base</ion-button>
+  <div class="settings-text"> Dernier rafraîchissement de l'API</div>
+  <div> le {{data.lastUpdatedDate}}</div>
 </ion-content>

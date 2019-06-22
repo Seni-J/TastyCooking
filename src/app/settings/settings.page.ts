@@ -44,8 +44,7 @@ export class SettingsPage implements OnInit {
   async modifiedAlert() {
     const alert = await this.alertCtrl.create({
       header: 'Modification API',
-      subHeader: 'Subtitle',
-      message: 'Vous avez modifié avec succès l´API. Le nouveau url sera ' + this.APIurl,
+      message: 'Vous avez modifié avec succès l´API. Le nouveau url sera "' + this.APIurl + '".',
       buttons: ['OK']
     });
 
@@ -54,7 +53,6 @@ export class SettingsPage implements OnInit {
   async resetAlert() {
     const alert = await this.alertCtrl.create({
       header: 'Remise de l API',
-      subHeader: 'Subtitle',
       message: 'API de base remis.',
       buttons: ['OK']
     });
@@ -67,6 +65,7 @@ export class SettingsPage implements OnInit {
   }
   setAPI(){
     this.data.url = this.APIurl
+    this.APIurl = ""
     this.modifiedAlert()
   }
 

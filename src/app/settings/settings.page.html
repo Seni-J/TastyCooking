@@ -8,4 +8,8 @@
 <div class="settings-text"> Choix du mode nuit ou jour</div>
   <ion-button (click)="changeTheme('light')">Light</ion-button>
   <ion-button (click)="changeTheme('night')">Dark</ion-button>
+  <div class="settings-text"> Modifier la source de l'API</div>
+  <ion-input placeholder="{{this.data.url}}" [(ngModel)]="APIurl" readonly="false"></ion-input>
+  <ion-button (click)="setAPI()">Modifier l'adresse de l'API</ion-button>
+  <ion-button (click)="resetAPI()">Remettre l'API de base</ion-button>
 </ion-content>

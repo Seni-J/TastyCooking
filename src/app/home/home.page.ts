@@ -32,10 +32,10 @@ export class HomePage {
       this.data.getAPIRecipes().then(() => {
         this.data.getRecipes().then(() => {
           resolve('Ok')
-        }).catch(() => {
-          this.data.getRecipes()
-          reject('Ko')
         })
+      }).catch(() => {
+        this.data.getRecipes()
+        reject('Ko')
       })
     })
   }

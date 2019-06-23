@@ -8,7 +8,7 @@
 </ion-header>
 <ion-content>
   <div *ngIf = "taken ; else noimage">
-    <img class="displayed" height="150 px" width="150 px" src="{{image}}">
+    <img class="displayed" height="150 px" width="150 px" src="{{picture}}">
   </div>
   <ng-template #noimage>
     <div class="noimage">
@@ -23,7 +23,7 @@
   </ion-item>
   <ion-item>
     <ion-label position="floating">Nombre de calories</ion-label>
-    <ion-input placeholder="kcal du plat" [(ngModel)]="kcal"></ion-input>
+    <ion-input placeholder="kcal du plat" [(ngModel)]="calories"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating">Temps approximatif de préparation</ion-label>

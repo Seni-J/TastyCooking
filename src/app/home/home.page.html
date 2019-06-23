@@ -14,7 +14,7 @@
         <ion-list>
         <ion-item *ngFor="let recipe of data.recipes" (click)="goToSelectedReceipe(recipe.id)">
             <ion-thumbnail slot="start">
-                <img src="{{recipe.pic}}">
+                <img src="{{recipe.picture}}">
             </ion-thumbnail>
             <ion-label>{{recipe.title}}</ion-label>
         </ion-item>

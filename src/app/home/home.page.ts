@@ -27,7 +27,6 @@ export class HomePage {
   }
 
   private load(): Promise<string> {
-
     return new Promise<string>((resolve, reject) => {
       this.data.getAPIRecipes().then(() => {
         this.data.getRecipes().then(() => {
@@ -52,11 +51,9 @@ export class HomePage {
     this.load().then(() => {
       this.toastCtrl.create({ message: 'Les données ont été rechargées', duration: 1000 }).then((toastData)=>{ toastData.present() })
       event.target.complete();
-      console.log('Success refresh');
     }).catch(() => {
       this.toastCtrl.create({ message: 'Pas de connexion', duration: 1000 }).then((toastData)=>{ toastData.present() })
       event.target.complete();
-      console.log('Failed refresh');
     })
   }
 

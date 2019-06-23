@@ -13,14 +13,14 @@ import {DataProvider} from '../provider/DataProvider';
 export class CreaterecipePage implements OnInit {
 
   private router:Router
-  image:any=''
+  picture:any=''
   taken:boolean = false
   storage:Storage
   recipe:Recipe
   private data: DataProvider
 
   name:string
-  kcal:number
+  calories:number
   time:number
   ingredients: string[]
 
@@ -49,7 +49,7 @@ export class CreaterecipePage implements OnInit {
       // imageData is either a base64 encoded string or a file URI
       // If it's base64 (DATA_URL):
       //alert(imageData)
-      this.image=(<any>window).Ionic.WebView.convertFileSrc(imageData);
+      this.picture=(<any>window).Ionic.WebView.convertFileSrc(imageData);
       this.taken = true;
     }, (err) => {
       // Handle error
@@ -60,15 +60,15 @@ export class CreaterecipePage implements OnInit {
 
 
   public addNewRecipe(){
-    var r = new Recipe(this.data.recipes.length + 1,this.name,this.image,this.kcal,this.time,this.ingredients)
+    var r = new Recipe(this.data.recipes.length + 1,this.name,this.picture,this.calories,this.time,this.ingredients)
 
     this.data.recipes.push(r)
     this.storage.set('recipes',this.data.recipes)
 
 
     this.name = ""
-    this.image = ""
-    this.kcal = null
+    this.picture = ""
+    this.calories = null
     this.time = null
     this.ingredients = null
 

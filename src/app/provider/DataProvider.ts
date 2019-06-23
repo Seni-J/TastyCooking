@@ -32,8 +32,8 @@ export class DataProvider{
                             if(r.id == d.id){
                                 //Update data with API
                                 this.recipes[r.id - 1].title = d.title
-                                this.recipes[r.id - 1].kcal = d.calories
-                                this.recipes[r.id - 1].pic = d.picture
+                                this.recipes[r.id - 1].calories = d.calories
+                                this.recipes[r.id - 1].picture = d.picture
                                 this.recipes[r.id - 1].time = d.time
                             }
                         }

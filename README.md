@@ -4,6 +4,18 @@ Application mobile de recette pour iOS et Android.
 
 ## API
 
-L'API qui sera utilisé sera WeCook (si ils m'autorise l'accès à leur API). 
+L'API utilisé pour ce projet est celui-ci: https://github.com/XCarrel/APIServer
 
-Les données attendues sont comme sur le lien suivant: https://api.wecook.fr/docs/2/?shell#api-reference
+avec comme route possible : http://localhost:8000/api/sjm/recipes en GET
+
+
+## Installation
+
+* Clonez le projet et rendez vous dans le dossier avec un invité de commandes type Cmder.
+
+* Lancez la commande "npm install" pour installer les dépendances nécessaires.
+
+* Lancer la commande "ionic serve" ou ionic serve --lab" pour visualiser l'application dans un navigateur.
+
+**Ne pas oublier de lancer une instance de l'API et remplir les données dans la base.**
+

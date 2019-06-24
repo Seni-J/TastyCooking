@@ -35,6 +35,8 @@
       <ng-template #noingredient>
         <div> Pas d'ingrédient mentionné pour ce plat.</div>
       </ng-template>
+
+      <ion-button (click)="goToSteps(recipe.id)">Voir les étapes</ion-button>
     </ion-grid>
   </div>
 </ion-content>

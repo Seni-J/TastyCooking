@@ -7,8 +7,11 @@ const routes: Routes = [
   { path: 'contact', loadChildren: './contact/contact.module#ContactPageModule' },
   { path: 'favorite', loadChildren: './favorite/favorite.module#FavoritePageModule' },
   { path: 'category', loadChildren: './category/category.module#CategoryPageModule' },
-  { path: 'recipe/:id', loadChildren: './recipe/recipe.module#RecipePageModule' },  { path: 'createrecipe', loadChildren: './createrecipe/createrecipe.module#CreaterecipePageModule' },
+  { path: 'recipe/:id', loadChildren: './recipe/recipe.module#RecipePageModule' },
+  { path: 'createrecipe', loadChildren: './createrecipe/createrecipe.module#CreaterecipePageModule' },
   { path: 'settings', loadChildren: './settings/settings.module#SettingsPageModule' },
+  { path: 'step/:id', loadChildren: './step/step.module#StepPageModule' },
+  { path: 'comment/:id', loadChildren: './comment/comment.module#CommentPageModule' },
 
 ];
 

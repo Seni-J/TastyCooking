@@ -24,6 +24,7 @@ export class HomePage {
     this.router = router
     this.data = data
     this.load()
+    console.log(this.data.recipes.pop())
   }
 
   private load(): Promise<string> {

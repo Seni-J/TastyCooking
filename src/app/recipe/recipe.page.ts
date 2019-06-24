@@ -4,7 +4,6 @@ import {DataProvider} from "../provider/DataProvider";
 import {HttpClient} from "@angular/common/http";
 import {Recipe} from "../models/Recipe";
 import { Storage} from '@ionic/storage';
-import {forEach} from '@angular-devkit/schematics';
 
 @Component({
   selector: 'app-recipe',
@@ -28,10 +27,13 @@ export class RecipePage implements OnInit {
   ngOnInit() {
     var id = this.route.snapshot.paramMap.get('id')
 
-
       this.data.find(id).then((recipe) =>{
         this.recipe = recipe
       })
+  }
+
+  public goToSteps(id){
+    this.router.navigateByUrl('step/' + id)
   }
 
 }

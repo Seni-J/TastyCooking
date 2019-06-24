@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="" routerLink="/" routerDirection="back"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Étape n° {{recipe?.steps[currentStep].order}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="stepText">{{recipe?.steps[currentStep].step}}</div>
+  <ion-button (click)="nextStep()">Modifier l'étape</ion-button>
+  <ion-button (click)="nextStep()">Prochaine étape</ion-button>
+</ion-content>

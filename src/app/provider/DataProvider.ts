@@ -2,6 +2,7 @@ import {Storage} from "@ionic/storage";
 import {HttpClient} from "@angular/common/http";
 import {Injectable} from "@angular/core";
 import {Recipe} from "../models/Recipe";
+import {Step} from '../models/Step';
 
 @Injectable()
 export class DataProvider{
@@ -9,12 +10,21 @@ export class DataProvider{
     private storage: Storage;
     private http: HttpClient;
     public recipes: Recipe[];
+    public steps: Step[]
     public lastUpdatedDate: Date
 
     constructor(storage: Storage, http: HttpClient) {
         this.storage = storage;
         this.http = http;
         this.recipes = [];
+        this.steps = []
+        // Data for testing steps on a created recipe.
+        this.steps.push(new Step(1,'STEP 1'))
+        this.steps.push(new Step(2,'STEP 2'))
+        this.steps.push(new Step(3,'STEP 3'))
+        this.steps.push(new Step(4,'STEP 4'))
+        this.steps.push(new Step(5,'STEP 5'))
+
         this.lastUpdatedDate = new Date()
     }
 
@@ -54,7 +64,7 @@ export class DataProvider{
             this.storage.get('recipes').then((data) => {
                 if(this.recipes.length == 0){
                     data.forEach((value) => {
-                        var f = new Recipe(value.id, value.title, value.picture, value.calories,value.time,value.ingredients)
+                        var f = new Recipe(value.id, value.title, value.picture, value.calories,value.time,value.ingredients,this.steps)
                         this.recipes.push(f)
                     })
                 }

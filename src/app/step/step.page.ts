@@ -34,10 +34,14 @@ export class StepPage implements OnInit {
 
   nextStep(){
     if(this.currentStep == 4){
+      this.currentStep = 0
       this.router.navigateByUrl('comment/' + this.recipe.id)
     }else{
       this.currentStep++
     }
+  }
+  modifyStep(rid: number, sid: number){
+    this.router.navigateByUrl('editstep/' + rid + "/" + sid)
   }
 
 

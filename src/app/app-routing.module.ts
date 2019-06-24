@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
+
+//rid stands for RecipeID and sid for StepID.
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', loadChildren: './home/home.module#HomePageModule' },
@@ -12,6 +14,8 @@ const routes: Routes = [
   { path: 'settings', loadChildren: './settings/settings.module#SettingsPageModule' },
   { path: 'step/:id', loadChildren: './step/step.module#StepPageModule' },
   { path: 'comment/:id', loadChildren: './comment/comment.module#CommentPageModule' },
+  { path: 'editstep/:rid/:sid', loadChildren: './editstep/editstep.module#EditstepPageModule' },
+
 
 ];
 

@@ -5,6 +5,6 @@
 </ion-header>
 
 <ion-content>
-  <ion-textarea placeholder="Votre commentaire..."></ion-textarea>
-  <ion-button>Envoyer le commentaire</ion-button>
+  <ion-textarea placeholder="Votre commentaire..." [(ngModel)]="comment"></ion-textarea>
+  <ion-button (click)="addComment()">Envoyer le commentaire</ion-button>
 </ion-content>

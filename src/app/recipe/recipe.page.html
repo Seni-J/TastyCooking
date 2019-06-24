@@ -37,6 +37,22 @@
       </ng-template>
 
       <ion-button (click)="goToSteps(recipe.id)">Voir les étapes</ion-button>
+      <div *ngIf="recipe?.comments.length > 0; else nocomment">
+        Les différents commentaires fait pour cette recette:
+
+        <ion-card *ngFor="let comment of recipe?.comments">
+          <ion-card-header>
+            <ion-card-title>Commentaire numéro {{comment.id}}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            {{comment.comment}}
+          </ion-card-content>
+        </ion-card>
+      </div>
+      <ng-template #nocomment>
+        <div> Pas de commentaire pour cette recette.</div>
+      </ng-template>
+
     </ion-grid>
   </div>
 </ion-content>

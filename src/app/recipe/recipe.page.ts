@@ -33,6 +33,7 @@ export class RecipePage implements OnInit {
   }
 
   public goToSteps(id){
+    console.log(this.recipe)
     this.router.navigateByUrl('step/' + id)
   }
 

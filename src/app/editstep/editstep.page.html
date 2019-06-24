@@ -1,0 +1,10 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Modifier l'étape {{recipe?.steps[currentStep].order}} de {{recipe?.title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-textarea placeholder="{{this.recipe?.steps[currentStep].step}}" [(ngModel)]="newStep"></ion-textarea>
+  <ion-button (click)="sendModifiedStep()">Modifier l'étape</ion-button>
+</ion-content>

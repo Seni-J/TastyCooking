@@ -9,6 +9,6 @@
 
 <ion-content>
   <div class="stepText">{{recipe?.steps[currentStep].step}}</div>
-  <ion-button (click)="nextStep()">Modifier l'étape</ion-button>
+  <ion-button (click)="modifyStep(recipe?.id, currentStep)">Modifier l'étape</ion-button>
   <ion-button (click)="nextStep()">Prochaine étape</ion-button>
 </ion-content>

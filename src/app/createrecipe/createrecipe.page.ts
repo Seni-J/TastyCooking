@@ -5,6 +5,7 @@ import {Recipe} from '../models/Recipe';
 import {Router} from '@angular/router';
 import {DataProvider} from '../provider/DataProvider';
 import {Step} from '../models/Step';
+import {Comment} from '../models/Comment';
 
 @Component({
   selector: 'app-createrecipe',
@@ -25,6 +26,7 @@ export class CreaterecipePage implements OnInit {
   time:number
   ingredients: string[]
   steps: Step[]
+  comments: Comment[]
 
 
 
@@ -33,6 +35,7 @@ export class CreaterecipePage implements OnInit {
     this.storage = storage
     this.data = data
     this.steps = []
+    this.comments = []
     // Data for testing steps on a created recipe.
     this.steps.push(new Step(1,'STEP 1'))
     this.steps.push(new Step(2,'STEP 2'))
@@ -70,7 +73,7 @@ export class CreaterecipePage implements OnInit {
 
 
   public addNewRecipe(){
-    var r = new Recipe(this.data.recipes.length + 1,this.name,this.picture,this.calories,this.time,this.ingredients,this.steps)
+    var r = new Recipe(this.data.recipes.length + 1,this.name,this.picture,this.calories,this.time,this.ingredients,this.steps,this.comments)
 
     this.data.recipes.push(r)
     this.storage.set('recipes',this.data.recipes)
